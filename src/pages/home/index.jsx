@@ -8,6 +8,7 @@ import {
   MdPlayCircleOutline as IconNowPlayingMovies,
   MdOutlineUpdate as IconUpcomingMovies
 } from 'react-icons/md';
+import { AiFillStar as IconStar } from 'react-icons/ai';
 
 const HomePage = () => {
   const [movies, setMovies] = useState([]);
@@ -31,6 +32,7 @@ const HomePage = () => {
           </div>
         </div>
       </div>
+      
       <div className='bg-gradient-to-b from-red-600 to-black via-red-800 p-4 md:p-8 flex flex-col gap-4'>
         <div className='flex items-center gap-2'>
           <div className='text-white text-3xl'>
@@ -43,6 +45,15 @@ const HomePage = () => {
             <div key={movie.id} className='bg-black p-1 md:p-2'>
               <div className='flex flex-col'>
                 <img src={`${CONFIG.BASE_IMAGE_URL}${movie["poster_path"]}`} alt={movie.title} />
+              </div>
+              <div className='md:hidden text-white'>
+                <div className='flex items-center gap-2'>
+                  <div className='text-yellow-300'>
+                    <IconStar/>
+                  </div>
+                  <h4 className='text-white opacity-50 text-ellipsis'>{movie["vote_average"]}</h4>
+                </div>
+                <h3>{movie.title}</h3>
               </div>
             </div>
           ))}
