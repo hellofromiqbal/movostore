@@ -46,7 +46,7 @@ const HomePage = () => {
               <div className='flex flex-col'>
                 <img src={`${CONFIG.BASE_IMAGE_URL}${movie["poster_path"]}`} alt={movie.title} />
               </div>
-              <div className='md:hidden text-white'>
+              <div className='md:hidden text-white p-1'>
                 <div className='flex items-center gap-2'>
                   <div className='text-yellow-300'>
                     <IconStar/>
