@@ -13,4 +13,17 @@ const getUpcomingMovies = (callback) => {
     .catch(err => console.log(err));
 };
 
-export { getNowPlayingMovies, getUpcomingMovies };
+const searchMovie = (query, callback) => {
+  axios.get(API_ENDPOINT.SEARCH(query))
+    .then(res => callback(res.data.results))
+    .catch(err => console.log(err));
+};
+
+const generatePoster = (url) => {
+  if (url) {
+    return API_ENDPOINT.MOVIE_POSTER(url);
+  }
+  return `/images/movie1.webp`
+};
+
+export { getNowPlayingMovies, getUpcomingMovies, searchMovie, generatePoster };
