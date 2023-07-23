@@ -12,7 +12,7 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div className='bg-gradient-to-b from-red-700 to-black via-red-900 p-6 md:p-8 grid md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8'>
+    <div className='bg-gradient-to-b from-red-700 to-black via-red-900 p-4 md:p-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8'>
       {movies.map((movie) => (
         <div key={movie.id} className='bg-black p-2'>
           <div className='flex flex-col'>
