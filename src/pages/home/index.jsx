@@ -1,11 +1,27 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
+import { getNowPlayingMovies } from '../../scripts/data/themoviedb-source';
+import CONFIG from '../../scripts/global/config';
 
 const HomePage = () => {
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    getNowPlayingMovies((data) => {
+      setMovies(data)
+    });
+  }, []);
+
   return (
-    <div>
-      <h1 className="text-5xl font-bold text-blue-700">HomePage</h1>
+    <div className='bg-gradient-to-b from-red-700 to-black via-red-900 p-6 md:p-8 grid md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8'>
+      {movies.map((movie) => (
+        <div key={movie.id} className='bg-black p-2'>
+          <div className='flex flex-col'>
+            <img src={`${CONFIG.BASE_IMAGE_URL}${movie["poster_path"]}`} alt={movie.title} />
+          </div>
+        </div>
+      ))}
     </div>
   )
-}
+};
 
 export default HomePage;
