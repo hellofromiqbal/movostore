@@ -22,8 +22,11 @@ const HomePage = () => {
   const onInput = (query) => {
     if(query !== '') {
       return searchMovie(query, (data) => {
-        console.log(data);
-        setMovies(data);
+        if (data.length < 1) {
+          getNowPlayingMovies((data) => setMovies(data));
+        } else {
+          setMovies(data);
+        };
       });
     };
     
