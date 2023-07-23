@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-import { generatePoster, getNowPlayingMovies, getUpcomingMovies, searchMovie } from '../../scripts/data/themoviedb-source';
+import { generatePoster, getMovieDetails, getNowPlayingMovies, getUpcomingMovies, searchMovie } from '../../scripts/data/themoviedb-source';
 
 import { RiMovie2Line as IconMovie } from 'react-icons/ri';
 import {
@@ -64,7 +64,11 @@ const HomePage = () => {
         </div>
         <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-8'>
           {movies.map((movie) => (
-            <div key={movie.id} className='bg-black p-1 md:p-2'>
+            <div
+              key={movie.id}
+              className='bg-black p-1 md:p-2 cursor-pointer'
+              onClick={() => getMovieDetails(movie.id, (data) => console.log(data))}
+            >
               <div className='flex flex-col'>
                 <img src={generatePoster(movie["poster_path"])} alt={movie.title} />
               </div>
