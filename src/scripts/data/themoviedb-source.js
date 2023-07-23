@@ -11,6 +11,6 @@ const getUpcomingMovies = (callback) => {
   axios.get(API_ENDPOINT.UPCOMING)
     .then(res => callback(res.data.results))
     .catch(err => console.log(err));
-}
+};
 
 export { getNowPlayingMovies, getUpcomingMovies };

@@ -1,4 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react';
+
 import { getNowPlayingMovies } from '../../scripts/data/themoviedb-source';
 import CONFIG from '../../scripts/global/config';
 
