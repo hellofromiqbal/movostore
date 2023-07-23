@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 
 import { generatePoster, getNowPlayingMovies, getUpcomingMovies, searchMovie } from '../../scripts/data/themoviedb-source';
-import CONFIG from '../../scripts/global/config';
 
 import { RiMovie2Line as IconMovie } from 'react-icons/ri';
 import {
