@@ -20,10 +20,7 @@ const searchMovie = (query, callback) => {
 };
 
 const generatePoster = (url) => {
-  if (url) {
-    return API_ENDPOINT.MOVIE_POSTER(url);
-  }
-  return `/images/movie1.webp`
+  return url ? API_ENDPOINT.MOVIE_POSTER(url) : `images/movie1.webp`;
 };
 
 export { getNowPlayingMovies, getUpcomingMovies, searchMovie, generatePoster };
