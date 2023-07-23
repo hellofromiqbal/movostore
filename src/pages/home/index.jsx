@@ -20,7 +20,7 @@ const HomePage = () => {
 
   return (
     <>
-      <div className='h-[60vh] md:h-[50vh] lg:h-screen bg-[url("/images/movie2.webp")] bg-cover bg-center flex justify-center md:justify-normal items-center p-4 md:p-8'>
+      <div className='h-screen md:h-[50vh] lg:h-screen bg-[url("/images/movie2.webp")] bg-cover bg-center flex justify-center md:justify-normal items-center p-4 md:p-8'>
         <div className='flex gap-2'>
           <div className='text-white text-6xl md:text-7xl lg:text-[6.3rem]'>
             <IconMovie/>
