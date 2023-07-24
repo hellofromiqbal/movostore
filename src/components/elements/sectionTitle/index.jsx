@@ -2,7 +2,8 @@ import React from 'react';
 
 import {
   MdPlayCircleOutline as IconNowPlayingMovies,
-  MdOutlineUpdate as IconUpcomingMovies
+  MdOutlineUpdate as IconUpcomingMovies,
+  MdSearch as IconSearch
 } from 'react-icons/md';
 
 const SectionTitle = (props) => {
@@ -10,13 +11,17 @@ const SectionTitle = (props) => {
 
   const content = {
     "now-playing": {
-      title: "Now Playing",
+      title: "Now Playing Movies",
       icon: IconNowPlayingMovies()
     },
     "upcoming": {
-      title: "Upcoming",
+      title: "Upcoming Movies",
       icon: IconUpcomingMovies()
-    }
+    },
+    "search": {
+      title: "Search Movies",
+      icon: IconSearch()
+    },
   };
 
   return (

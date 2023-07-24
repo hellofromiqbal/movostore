@@ -58,27 +58,6 @@ const HomePage = () => {
         <SectionTitle section="upcoming"/>
         <MovieList movies={upcoming}/>
       </SectionLayout>
-
-      <footer className='flex flex-col gap-10 bg-black py-10'>
-        <ul className='flex gap-6 justify-center'>
-          <li className='text-white text-xl'><a href="#"><IconTiktok/></a></li>
-          <li className='text-white text-xl'><a href="#"><IconInstagram/></a></li>
-          <li className='text-white text-xl'><a href="#"><IconTwitter/></a></li>
-          <li className='text-white text-xl'><a href="#"><IconYoutube/></a></li>
-          <li className='text-white text-xl'><a href="#"><IconFacebook/></a></li>
-        </ul>
-        <ul className='w-3/4 place-self-center text-white grid md:grid-cols-4 gap-1 place-items-center'>
-          <li className='text-sm md:text-base'><a href="#">MovostoreApp</a></li>
-          <li className='text-sm md:text-base'><a href="#">Help & FAQ</a></li>
-          <li className='text-sm md:text-base'><a href="#">Site Index</a></li>
-          <li className='text-sm md:text-base'><a href="#">Advertising</a></li>
-          <li className='text-sm md:text-base'><a href="#">Job Vacancy</a></li>
-          <li className='text-sm md:text-base'><a href="#">Privacy Policy</a></li>
-          <li className='text-sm md:text-base'><a href="#">Box Office</a></li>
-          <li className='text-sm md:text-base'><a href="#">Press Room</a></li>
-        </ul>
-        <small className='text-white place-self-center opacity-50'>&copy; 1990-2023 by Movostore.com, Inc.</small>
-      </footer>
     </>
   )
 };

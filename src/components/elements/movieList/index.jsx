@@ -7,9 +7,15 @@ import 'swiper/css/navigation';
 
 import { AiFillStar as IconStar } from 'react-icons/ai';
 import { generatePoster, getMovieDetails } from '../../../scripts/data/themoviedb-source';
+import { useNavigate } from 'react-router-dom';
 
 const MovieList = (props) => {
   const { movies } = props;
+
+  const navigate = (link) => {
+    useNavigate(`/${link}`);
+  };
+
 
   return (
     <div className='flex'>
