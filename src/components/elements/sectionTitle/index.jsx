@@ -5,6 +5,7 @@ import {
   MdOutlineUpdate as IconUpcomingMovies,
   MdSearch as IconSearch
 } from 'react-icons/md';
+import Icon from '../icon';
 
 const SectionTitle = (props) => {
   const { section } = props;
@@ -26,11 +27,10 @@ const SectionTitle = (props) => {
 
   return (
     <div className='flex items-center gap-2'>
-      <div className='text-white text-3xl'>
+      <Icon fontsize={"text-3xl"}>
         {content[section].icon}
-      </div>
+      </Icon>
       <h2 className='font-semibold text-white text-lg md:text-xl lg:text-2xl'>{content[section].title}</h2>
-      {/* <input type="text" onInput={(e) => onInput(e.target.value)}/> */}
     </div>
   )
 };

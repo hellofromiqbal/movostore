@@ -4,16 +4,10 @@ import { generatePoster, getMovieDetails, getNowPlayingMovies, getUpcomingMovies
 
 import { RiMovie2Line as IconMovie } from 'react-icons/ri';
 
-import {
-  BsTiktok as IconTiktok,
-  BsInstagram as IconInstagram,
-  BsTwitter as IconTwitter,
-  BsYoutube as IconYoutube,
-  BsFacebook as IconFacebook
-} from 'react-icons/bs';
 import MovieList from '../../components/elements/movieList';
 import SectionTitle from '../../components/elements/sectionTitle';
 import SectionLayout from '../../components/layouts/SectionLayout';
+import Icon from '../../components/elements/icon';
 
 
 const HomePage = () => {
@@ -29,9 +23,9 @@ const HomePage = () => {
     <>
       <div className='h-screen md:h-[50vh] lg:h-screen bg-[url("/images/movie2.webp")] bg-cover bg-center flex justify-center md:justify-normal items-center p-4 md:p-8 lg:p-16'>
         <div className='flex gap-2'>
-          <div className='text-white text-6xl md:text-7xl lg:text-[6.3rem]'>
+          <Icon fontsize="text-6xl md:text-7xl lg:text-[6.3rem]">
             <IconMovie/>
-          </div>
+          </Icon>
           <div className='text-white'>
             <h1 className='font-extrabold text-4xl md:text-5xl lg:text-7xl'>MOVOSTORE</h1>
             <p className='text-base md:text-lg lg:text-xl'>Everyone's movie store</p>
