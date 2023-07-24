@@ -5,7 +5,7 @@ const Icon = (props) => {
 
   return (
     <div className={`text-white ${fontsize}`}>
-      {children}    
+      {children}
     </div>
   )
 };
