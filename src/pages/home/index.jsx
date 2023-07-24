@@ -28,7 +28,7 @@ const HomePage = () => {
           </Icon>
           <div className='text-white'>
             <h1 className='font-extrabold text-4xl md:text-5xl lg:text-7xl'>MOVOSTORE</h1>
-            <p className='text-base md:text-lg lg:text-xl'>Everyone's movie store</p>
+            <p className='text-base md:text-lg lg:text-xl'>Everyone's movie store!</p>
           </div>
         </div>
       </div>
