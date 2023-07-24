@@ -52,8 +52,8 @@ const HomePage = () => {
       <SectionLayout
         sectionId="upcoming"
         gradFrom={"from-gray-950"}
-        gradTo={"to-red-800"}
-        gradVia={"via-black"}
+        gradTo={"to-black"}
+        gradVia={"via-red-800"}
       >
         <SectionTitle section="upcoming"/>
         <MovieList movies={upcoming}/>
