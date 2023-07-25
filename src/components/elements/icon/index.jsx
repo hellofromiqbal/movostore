@@ -2,16 +2,15 @@ import React from 'react';
 
 const Icon = (props) => {
   const {
+    bgcolor = "transparent",
+    textcolor = "text-white",
     fontsize,
-    isClickable = false,
-    onClick = () => {},
     children
   } = props;
 
   return (
     <div
-      className={`text-white ${fontsize} ${isClickable? 'cursor-pointer' : ''}`}
-      onClick={onClick}
+      className={`${bgcolor} ${textcolor} ${fontsize}`}
     >
       {children}
     </div>
