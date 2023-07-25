@@ -12,24 +12,29 @@ const SearchBar = () => {
 
   const navigate = useNavigate();
 
-  const onInput = (query) => {
-    setKeyword(query);
-    searchMovie(query, (data) => setMovies(data));
-  };
-
   const onSearchMovies = (query) => {
     navigate(`/search/${query}`);
     setMovies([]);
   };
 
+  const onInput = (query) => {
+    setKeyword(query);
+    searchMovie(query, (data) => setMovies(data));
+  };
+
   const onPressEnter = (e, callback) => {
     if (e.code === 'Enter') {
-      const query = e.target.value;
-      callback(query);
-      e.target.value = '';
+      callback(keyword);
+      setKeyword('');
     };
     return;
   };
+
+  const onCardClick = (id) => {
+    navigate(`/detail/${id}`);
+    setKeyword('');
+    setMovies([]);
+  }
 
   return (
     <div className='relative hidden md:flex'>
@@ -39,13 +44,13 @@ const SearchBar = () => {
         placeholder='Harry Potter'
         onInput={(e) => onInput(e.target.value)}
         onKeyDown={(e) => onPressEnter(e, onSearchMovies)}
-        
+        value={keyword}
       />
       <Button bgcolor="bg-white" textcolor="text-black" fontsize="md:text-xl lg:text-2xl" rounded="rounded-e-sm">
         <IconSearch onClick={() => onSearchMovies(keyword)}/>
       </Button>
       {movies.length > 0 && 
-        <FloatingSearchResult movies={movies}/>
+        <FloatingSearchResult movies={movies} onCardClick={onCardClick}/>
       }
     </div>
   )

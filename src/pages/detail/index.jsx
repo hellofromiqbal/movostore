@@ -19,11 +19,8 @@ const DetailPage = () => {
   };
 
   useEffect(() => {
-    getMovieDetails(id, (data) => {
-      console.log(data);
-      setMovie(data);
-    });
-  }, []);
+    getMovieDetails(id, (data) => setMovie(data));
+  }, [id]);
 
   return (
     <SectionLayout
