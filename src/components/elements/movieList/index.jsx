@@ -7,9 +7,16 @@ import 'swiper/css/navigation';
 
 import { AiFillStar as IconStar } from 'react-icons/ai';
 import { generatePoster, getMovieDetails } from '../../../scripts/data/themoviedb-source';
+import { useNavigate } from 'react-router-dom';
 
 const MovieList = (props) => {
   const { movies } = props;
+
+  const navigate = useNavigate();
+
+  const onCardClick = (id) => {
+    navigate(`/detail/${id}`);
+  };
 
   return (
     <div className='flex'>
@@ -33,14 +40,12 @@ const MovieList = (props) => {
           },
         }}
         navigation
-        // onSwiper={(swiper) => console.log(swiper)}
-        // onSlideChange={() => console.log('slide change')}
       >
         {movies?.map((movie) => (
           <SwiperSlide
             key={movie.id}
             className='bg-black p-1 md:p-2 cursor-pointer'
-            onClick={() => getMovieDetails(movie.id, (data) => console.log(data))}
+            onClick={() => onCardClick(movie.id)}
           >
             <div className='flex flex-col'>
               <img src={generatePoster(movie["poster_path"])} alt={movie.title} />

@@ -5,6 +5,7 @@ import HomePage from './pages/home/index.jsx';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import MainLayout from './components/layouts/MainLayout';
 import SearchPage from './pages/search';
+import DetailPage from './pages/detail';
 
 const routes = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const routes = createBrowserRouter([
       {
         path: "/search/:query",
         element: <SearchPage/>
+      },
+      {
+        path: "/detail/:id",
+        element: <DetailPage/>
       },
     ]
   },
