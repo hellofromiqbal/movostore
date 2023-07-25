@@ -20,7 +20,7 @@ const SectionTitle = (props) => {
       icon: IconUpcomingMovies()
     },
     "search": {
-      title: "Search Movies",
+      title: "Search Result",
       icon: IconSearch()
     },
   };

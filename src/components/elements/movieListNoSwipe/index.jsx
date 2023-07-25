@@ -1,44 +1,16 @@
 import React from 'react';
 
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Autoplay } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-
 import { AiFillStar as IconStar } from 'react-icons/ai';
 import { generatePoster, getMovieDetails } from '../../../scripts/data/themoviedb-source';
-import { useNavigate } from 'react-router-dom';
 
-const MovieList = (props) => {
+const MovieListNoSwipe = (props) => {
   const { movies } = props;
 
   return (
     <div className='flex'>
-      <Swiper
-        modules={[Navigation, Autoplay]}
-        autoplay={{ delay: 5000 }}
-        spaceBetween={12}
-        slidesPerView={2}
-        breakpoints={{
-          640: {
-            slidesPerView: 2,
-            spaceBetween: 32,
-          },
-          768: {
-            slidesPerView: 3,
-            spaceBetween: 32,
-          },
-          1024: {
-            slidesPerView: 4,
-            spaceBetween: 32,
-          },
-        }}
-        navigation
-        // onSwiper={(swiper) => console.log(swiper)}
-        // onSlideChange={() => console.log('slide change')}
-      >
+      <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-8'>
         {movies?.map((movie) => (
-          <SwiperSlide
+          <div
             key={movie.id}
             className='bg-black p-1 md:p-2 cursor-pointer'
             onClick={() => getMovieDetails(movie.id, (data) => console.log(data))}
@@ -55,11 +27,11 @@ const MovieList = (props) => {
               </div>
               <h3 className='text-sm md:text-base'>{movie.title}</h3>
             </div>
-          </SwiperSlide>
+          </div>
         ))}
-      </Swiper>
+      </div>
     </div>
   )
 };
 
-export default MovieList;
+export default MovieListNoSwipe;

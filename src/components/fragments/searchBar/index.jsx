@@ -3,15 +3,32 @@ import Button from '../../elements/button';
 import { FiSearch as IconSearch } from 'react-icons/fi';
 import FloatingSearchResult from '../../elements/floatingSearchResult';
 import { searchMovie } from '../../../scripts/data/themoviedb-source';
+import { useNavigate } from 'react-router-dom';
 
 const SearchBar = () => {
   const [movies, setMovies] = useState([]);
 
+  const [keyword, setKeyword] = useState('');
+
+  const navigate = useNavigate();
+
   const onInput = (query) => {
-    searchMovie(query, (data) => {
-      console.log(data);
-      setMovies(data);
-    });
+    setKeyword(query);
+    searchMovie(query, (data) => setMovies(data));
+  };
+
+  const onSearchMovies = (query) => {
+    navigate(`/search/${query}`);
+    setMovies([]);
+  };
+
+  const onPressEnter = (e, callback) => {
+    if (e.code === 'Enter') {
+      const query = e.target.value;
+      callback(query);
+      e.target.value = '';
+    };
+    return;
   };
 
   return (
@@ -21,9 +38,11 @@ const SearchBar = () => {
         type="text"
         placeholder='Harry Potter'
         onInput={(e) => onInput(e.target.value)}
+        onKeyDown={(e) => onPressEnter(e, onSearchMovies)}
+        
       />
       <Button bgcolor="bg-white" textcolor="text-black" fontsize="md:text-xl lg:text-2xl" rounded="rounded-e-sm">
-        <IconSearch/>
+        <IconSearch onClick={() => onSearchMovies(keyword)}/>
       </Button>
       <FloatingSearchResult movies={movies}/>
     </div>
