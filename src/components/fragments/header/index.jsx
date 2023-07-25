@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 
-import { RiMovie2Line as IconMovie } from 'react-icons/ri';
 import Icon from '../../elements/icon';
 import SearchBar from '../searchBar';
+import Button from '../../elements/button';
+
+import { RiMovie2Line as IconMovie } from 'react-icons/ri';
+import { FiSearch as IconSearch } from 'react-icons/fi';
 
 const Header = () => {
   return (
@@ -11,9 +14,12 @@ const Header = () => {
         <Icon fontsize="text-lg md:text-xl lg:text-2xl">
           <IconMovie/>
         </Icon>
-        <h2 className='font-semibold text-white text-lg md:text-xl lg:text-2xl'>MOVOSTORE</h2>
+        <h2 className='font-semibold text-white text-sm md:text-xl lg:text-2xl'>MOVOSTORE</h2>
       </div>
       <SearchBar/>
+      <Button fontsize="md:hidden text-lg md:text-xl lg:text-2xl">
+        <IconSearch/>
+      </Button>
     </header>
   )
 };
