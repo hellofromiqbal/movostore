@@ -20,11 +20,7 @@ const searchMovie = (query, callback) => {
 };
 
 const generatePoster = (url) => {
-  return url ? API_ENDPOINT.MOVIE_POSTER(url) : `images/movie1.webp`;
-};
-
-const generateBackdrop = (url) => {
-  return url ? API_ENDPOINT.MOVIE_BACKDROP(url) : `images/movie1.webp`;
+  return url ? API_ENDPOINT.MOVIE_POSTER(url) : `/images/movie1.webp`;
 };
 
 const getMovieDetails = (id, callback) => {
@@ -33,4 +29,4 @@ const getMovieDetails = (id, callback) => {
     .catch(err => console.log(err));
 };
 
-export { getNowPlayingMovies, getUpcomingMovies, searchMovie, generatePoster, generateBackdrop, getMovieDetails };
+export { getNowPlayingMovies, getUpcomingMovies, searchMovie, generatePoster, getMovieDetails };

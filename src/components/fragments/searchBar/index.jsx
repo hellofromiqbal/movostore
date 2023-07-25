@@ -44,7 +44,9 @@ const SearchBar = () => {
       <Button bgcolor="bg-white" textcolor="text-black" fontsize="md:text-xl lg:text-2xl" rounded="rounded-e-sm">
         <IconSearch onClick={() => onSearchMovies(keyword)}/>
       </Button>
-      <FloatingSearchResult movies={movies}/>
+      {movies.length > 0 && 
+        <FloatingSearchResult movies={movies}/>
+      }
     </div>
   )
 };
