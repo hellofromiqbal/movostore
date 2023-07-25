@@ -1,5 +1,5 @@
 import React from 'react';
-import { generatePoster, getMovieDetails } from '../../../scripts/data/themoviedb-source';
+import { generatePoster } from '../../../scripts/data/themoviedb-source';
 
 const FloatingSearchResult = (props) => {
   const { movies } = props;

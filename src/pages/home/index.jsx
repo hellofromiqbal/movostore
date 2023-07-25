@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { generatePoster, getMovieDetails, getNowPlayingMovies, getUpcomingMovies, searchMovie } from '../../scripts/data/themoviedb-source';
+import { getNowPlayingMovies, getUpcomingMovies } from '../../scripts/data/themoviedb-source';
 
 import { RiMovie2Line as IconMovie } from 'react-icons/ri';
 
