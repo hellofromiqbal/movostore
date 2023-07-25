@@ -40,7 +40,7 @@ const DetailPage = () => {
         </div>
         <div className='basis-1/2 lg:basis-3/5 text-white flex flex-col lg:gap-2 gap-1'>
           <h2 className='font-semibold text-lg md:text-xl lg:text-2xl'>{movie.title}</h2>
-          <cite className='text-sm md:text-base'>{`"${movie.tagline}"`}</cite>
+          {movie.tagline && <cite className='text-sm md:text-base'>{`"${movie.tagline}"`}</cite>}
           <p className='text-sm md:text-base'>Genres: {movie.genres?.map((genre, i) => wordFormatter(movie, "genres", genre, "name", i))}</p>
           <p className='text-sm md:text-base'>Languages: {movie["spoken_languages"]?.map((language, i) => wordFormatter(movie, "spoken_languages", language, "english_name", i))}</p>
           <p className='text-sm md:text-base'>Release Date: {movie["release_date"]}</p>
