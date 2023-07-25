@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 import { RiMovie2Line as IconMovie } from 'react-icons/ri';
-import { BsCartFill as IconCartFill } from 'react-icons/bs';
 import Icon from '../../elements/icon';
 import SearchBar from '../searchBar';
 
