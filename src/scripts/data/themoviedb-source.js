@@ -23,10 +23,14 @@ const generatePoster = (url) => {
   return url ? API_ENDPOINT.MOVIE_POSTER(url) : `images/movie1.webp`;
 };
 
+const generateBackdrop = (url) => {
+  return url ? API_ENDPOINT.MOVIE_BACKDROP(url) : `images/movie1.webp`;
+};
+
 const getMovieDetails = (id, callback) => {
   axios.get(API_ENDPOINT.DETAIL(id))
     .then(res => callback(res.data))
     .catch(err => console.log(err));
 };
 
-export { getNowPlayingMovies, getUpcomingMovies, searchMovie, generatePoster, getMovieDetails };
+export { getNowPlayingMovies, getUpcomingMovies, searchMovie, generatePoster, generateBackdrop, getMovieDetails };
