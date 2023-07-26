@@ -1,5 +1,5 @@
 import React from 'react';
-import videoBg from '../../../assets/jumbovid.mp4';
+import videoBg from '../../../assets/videos/jumbovid.mp4';
 
 const VideBackground = () => {
   return (

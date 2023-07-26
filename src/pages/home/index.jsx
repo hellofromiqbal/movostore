@@ -24,7 +24,7 @@ const HomePage = () => {
 
   return (
     <>
-      <div className='relative w-full h-screen md:h-[50vh] lg:h-screen object-'>
+      <div className='relative w-full h-screen md:h-[50vh] lg:h-screen'>
         <VideBackground/>
         <div className='absolute top-0 left-0  right-0 bottom-0 flex justify-center items-center gap-2'>
           <Icon fontsize="text-6xl md:text-7xl lg:text-[6.3rem]">
@@ -40,8 +40,8 @@ const HomePage = () => {
       <SectionLayout
         sectionId="nowPlayingMovies"
         gradFrom={"from-black"}
-        gradTo={"to-red-700"}
-        gradVia={"via-gray-950"}
+        gradTo={"to-red-950"}
+        gradVia={"via-black"}
       >
         <SectionTitle section="nowPlayingMovies" displayGoBackLink={false}/>
         <MovieList movies={nowPlayingMovies}/>
@@ -49,9 +49,9 @@ const HomePage = () => {
 
       <SectionLayout
         sectionId="topRatedMovies"
-        gradFrom={"from-red-700"}
-        gradTo={"to-red-700"}
-        gradVia={"via-red-700"}
+        gradFrom={"from-red-950"}
+        gradTo={"to-red-950"}
+        gradVia={"via-red-900"}
       >
         <SectionTitle section="topRatedMovies" displayGoBackLink={false}/>
         <MovieList movies={topRatedMovies}/>
@@ -59,9 +59,9 @@ const HomePage = () => {
 
       <SectionLayout
         sectionId="upcomingMovies"
-        gradFrom={"from-red-700"}
+        gradFrom={"from-red-950"}
         gradTo={"to-black"}
-        gradVia={"via-gray-950"}
+        gradVia={"via-black"}
       >
         <SectionTitle section="upcomingMovies" displayGoBackLink={false}/>
         <MovieList movies={upcomingMovies}/>
