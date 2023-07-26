@@ -9,3 +9,8 @@
 html {
   scroll-behavior: smooth;
 }
+
+.swiper-button-prev, .swiper-button-next {
+  background-color: black;
+  color: white !important;
+}
