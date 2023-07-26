@@ -40,7 +40,7 @@ const SectionTitle = (props) => {
       <Icon fontsize={"text-3xl"}>
         {content[section].icon}
       </Icon>
-      <h2 className='font-semibold text-white text-lg md:text-xl lg:text-2xl'>{content[section].title}</h2>
+      <h2 className='font-semibold text-white text-base md:text-lg lg:text-xl'>{content[section].title}</h2>
     </div>
   )
 };
