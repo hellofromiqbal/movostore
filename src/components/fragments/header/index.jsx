@@ -13,14 +13,14 @@ const Header = () => {
 
   return (
     <header className='bg-black flex items-center justify-between fixed top-0 left-0 right-0 z-10 shadow-md px-4 py-3 md:px-8 lg:px-16'>
-      <div className='flex items-center gap-2 cursor-pointer' onClick={() => navigate(`/`)}>
+      <div className='flex items-center gap-1 md:gap-2 cursor-pointer' onClick={() => navigate(`/`)}>
         <Icon fontsize="text-sm md:text-base lg:text-xl">
           <IconMovie/>
         </Icon>
-        <h2 className='font-semibold text-white text-sm md:text-base lg:text-xl'>MOVOSTORE</h2>
+        <h2 className='md:font-semibold text-white text-sm md:text-base lg:text-xl'>MOVOSTORE</h2>
       </div>
       <SearchBar/>
-      <Button fontsize="md:hidden text-sm md:text-base lg:text-xl">
+      <Button fontsize="md:hidden text-lg">
         <IconSearch/>
       </Button>
     </header>
