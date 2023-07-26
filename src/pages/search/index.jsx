@@ -17,8 +17,8 @@ const SearchPage = () => {
   return (
     <SectionLayout
       sectionId="searchResults"
-      gradFrom={"from-black"}
-      gradTo={"to-gray-950"}
+      gradFrom={"from-gray-950"}
+      gradTo={"to-black"}
       gradVia={"via-red-800"}
       padding={"px-4 pt-16 pb-4 md:px-8 lg:px-16"}
     >

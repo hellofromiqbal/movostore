@@ -2,7 +2,7 @@ import React from 'react';
 import { generatePoster } from '../../../scripts/data/themoviedb-source';
 
 const FloatingSearchResult = (props) => {
-  const { movies, onCardClick } = props;
+  const { movies, onCardClick, onSearchMovies } = props;
 
   return (
     <div className='absolute w-full bg-black text-white top-[2.3rem] rounded-sm px-2 flex flex-col'>
@@ -18,7 +18,7 @@ const FloatingSearchResult = (props) => {
           </div>
         </div>
       ))}
-      <a className="py-2 text-center" href="#">Show all results</a>
+      <a className="py-2 text-center cursor-pointer" onClick={() => onSearchMovies()}>Show all results</a>
     </div>
   )
 };

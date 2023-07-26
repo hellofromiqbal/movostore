@@ -46,11 +46,11 @@ const SearchBar = () => {
         onKeyDown={(e) => onPressEnter(e, onSearchMovies)}
         value={keyword}
       />
-      <Button bgcolor="bg-white" textcolor="text-black" fontsize="md:text-xl lg:text-2xl" rounded="rounded-e-sm">
-        <IconSearch onClick={() => onSearchMovies(keyword)}/>
+      <Button bgcolor="bg-white" textcolor="text-black" fontsize="md:text-xl lg:text-2xl" rounded="rounded-e-sm" onClick={() => onSearchMovies(keyword)}>
+        <IconSearch/>
       </Button>
       {movies.length > 0 && 
-        <FloatingSearchResult movies={movies} onCardClick={onCardClick}/>
+        <FloatingSearchResult movies={movies} onCardClick={onCardClick} onSearchMovies={() => onSearchMovies(keyword)}/>
       }
     </div>
   )
