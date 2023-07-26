@@ -15,7 +15,7 @@ const MovieListNoSwipe = (props) => {
 
   return (
     <div className='flex'>
-      <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-6 gap-3 md:gap-8'>
+      <div className='grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 2xl:grid-cols-6 gap-2 md:gap-3 lg:gap-4 xl:gap-6'>
         {movies?.map((movie) => (
           <div
             key={movie.id}
