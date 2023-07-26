@@ -16,13 +16,13 @@ const SearchPage = () => {
 
   return (
     <SectionLayout
-      sectionId="now-playing"
+      sectionId="searchResults"
       gradFrom={"from-black"}
       gradTo={"to-gray-950"}
       gradVia={"via-red-800"}
       padding={"px-4 pt-16 pb-4 md:px-8 lg:px-16"}
     >
-      <SectionTitle section="search"/>
+      <SectionTitle section="searchResults"/>
       <MovieListNoSwipe movies={movies}/>
     </SectionLayout>
   )
