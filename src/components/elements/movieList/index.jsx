@@ -38,7 +38,7 @@ const MovieList = (props) => {
             slidesPerView: 4,
             spaceBetween: 32,
           },
-          1280: {
+          1536: {
             slidesPerView: 6,
             spaceBetween: 32
           }
