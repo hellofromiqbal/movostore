@@ -8,6 +8,7 @@ import MovieList from '../../components/elements/movieList';
 import SectionTitle from '../../components/elements/sectionTitle';
 import SectionLayout from '../../components/layouts/SectionLayout';
 import Icon from '../../components/elements/icon';
+import VideBackground from '../../components/elements/videoBackground';
 
 
 const HomePage = () => {
@@ -23,8 +24,9 @@ const HomePage = () => {
 
   return (
     <>
-      <div className='h-screen md:h-[50vh] lg:h-screen bg-[url("/images/movie2.webp")] bg-cover bg-center flex justify-center md:justify-normal items-center p-4 md:p-8 lg:p-16'>
-        <div className='flex gap-2'>
+      <div className='relative w-full h-screen md:h-[50vh] lg:h-screen object-'>
+        <VideBackground/>
+        <div className='absolute top-0 left-0  right-0 bottom-0 flex justify-center items-center gap-2'>
           <Icon fontsize="text-6xl md:text-7xl lg:text-[6.3rem]">
             <IconMovie/>
           </Icon>
