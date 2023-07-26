@@ -2,9 +2,11 @@ import React from 'react';
 
 import {
   MdPlayCircleOutline as IconNowPlayingMovies,
+  MdStars as IconTopRatedMovies,
   MdOutlineUpdate as IconUpcomingMovies,
   MdSearch as IconSearch
 } from 'react-icons/md';
+import { HiOutlineInformationCircle as IconMovieDetails } from 'react-icons/hi';
 import Icon from '../icon';
 
 const SectionTitle = (props) => {
@@ -15,12 +17,12 @@ const SectionTitle = (props) => {
       title: "Now Playing Movies",
       icon: IconNowPlayingMovies()
     },
-    "upcomingMovies": {
-      title: "Upcoming Movies",
-      icon: IconUpcomingMovies()
-    },
     "topRatedMovies": {
       title: "Top Rated Movies",
+      icon: IconTopRatedMovies()
+    },
+    "upcomingMovies": {
+      title: "Upcoming Movies",
       icon: IconUpcomingMovies()
     },
     "searchResults": {
@@ -29,7 +31,7 @@ const SectionTitle = (props) => {
     },
     "movieDetails": {
       title: "Movie Details",
-      icon: IconSearch()
+      icon: IconMovieDetails()
     },
   };
 
