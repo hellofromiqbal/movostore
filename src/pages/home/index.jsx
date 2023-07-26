@@ -41,7 +41,7 @@ const HomePage = () => {
         gradTo={"to-red-700"}
         gradVia={"via-gray-950"}
       >
-        <SectionTitle section="nowPlayingMovies"/>
+        <SectionTitle section="nowPlayingMovies" displayGoBackLink={false}/>
         <MovieList movies={nowPlayingMovies}/>
       </SectionLayout>
 
@@ -51,7 +51,7 @@ const HomePage = () => {
         gradTo={"to-red-700"}
         gradVia={"via-red-700"}
       >
-        <SectionTitle section="topRatedMovies"/>
+        <SectionTitle section="topRatedMovies" displayGoBackLink={false}/>
         <MovieList movies={topRatedMovies}/>
       </SectionLayout>
 
@@ -61,7 +61,7 @@ const HomePage = () => {
         gradTo={"to-black"}
         gradVia={"via-gray-950"}
       >
-        <SectionTitle section="upcomingMovies"/>
+        <SectionTitle section="upcomingMovies" displayGoBackLink={false}/>
         <MovieList movies={upcomingMovies}/>
       </SectionLayout>
     </>

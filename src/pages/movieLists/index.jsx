@@ -28,7 +28,7 @@ const MovieListsPage = () => {
       gradVia={"via-red-800"}
       padding={"px-4 pt-16 pb-4 md:px-8 lg:px-16"}
     >
-      <SectionTitle section="nowPlayingMovies" showAll={false}/>
+      <SectionTitle section="nowPlayingMovies" displayShowAllLink={false}/>
       <MovieListNoSwipe movies={movies}/>
     </SectionLayout>
   )

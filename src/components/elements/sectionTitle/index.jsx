@@ -11,7 +11,7 @@ import { HiOutlineInformationCircle as IconMovieDetails } from 'react-icons/hi';
 import Icon from '../icon';
 
 const SectionTitle = (props) => {
-  const { section, showAll = true } = props;
+  const { section, displayShowAllLink = true, displayGoBackLink = true } = props;
 
   const content = {
     "nowPlayingMovies": {
@@ -47,8 +47,11 @@ const SectionTitle = (props) => {
         </Icon>
         <h2 className='font-semibold text-white text-base md:text-lg lg:text-xl'>{content[section].title}</h2>
       </div>
-      {showAll &&
-        <Link to={content[section].link} className='text-white text-sm'>Show All</Link>
+      {displayShowAllLink &&
+        <Link to={content[section].link} className='font-semibold text-white text-sm'>Show All</Link>
+      }
+      {displayGoBackLink &&
+        <Link to={"/"} className='font-semibold text-white text-sm'>Go Back</Link>
       }
     </div>
   )
