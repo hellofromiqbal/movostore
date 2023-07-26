@@ -22,8 +22,8 @@ const MovieListNoSwipe = (props) => {
             className='bg-black p-1 md:p-2 cursor-pointer'
             onClick={() => onCardClick(movie.id)}
           >
-            <div className='flex flex-col'>
-              <img src={generatePoster(movie["poster_path"])} alt={movie.title} />
+            <div className='flex flex-col overflow-hidden'>
+              <img src={generatePoster(movie["poster_path"])} alt={movie.title} className='hover:scale-[1.1] transition duration-500'/>
             </div>
             <div className='md:hidden text-white p-1'>
               <div className='flex items-center gap-2'>
