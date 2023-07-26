@@ -13,7 +13,7 @@ const Header = () => {
 
   return (
     <header className='bg-black flex items-center justify-between fixed top-0 left-0 right-0 z-10 shadow-md px-4 py-3 md:px-8 lg:px-16'>
-      <div className='flex items-center gap-2' onClick={() => navigate(`/`)}>
+      <div className='flex items-center gap-2 cursor-pointer' onClick={() => navigate(`/`)}>
         <Icon fontsize="text-lg md:text-xl lg:text-2xl">
           <IconMovie/>
         </Icon>
