@@ -35,9 +35,9 @@ const Footer = () => {
           <li key={socialMedia.id} className='text-white text-xl'><a href={socialMedia.link}>{socialMedia.icon}</a></li>
         ))}
       </ul>
-      <ul className='w-3/4 place-self-center text-white grid md:grid-cols-4 gap-1 place-items-center'>
+      <ul className='w-3/4 place-self-center text-white grid md:grid-cols-4 gap-2 md:gap-1 place-items-center'>
         {footerLinks.map((footerLink) => (
-          <li key={footerLink.id} className='text-sm md:text-base'><a href={footerLink.link}>{footerLink.text}</a></li>
+          <li key={footerLink.id} className='text-xs md:text-sm'><a href={footerLink.link}>{footerLink.text}</a></li>
         ))}
       </ul>
       <small className='text-white place-self-center opacity-50'>&copy; 1990-2023 by Movostore.com, Inc.</small>
