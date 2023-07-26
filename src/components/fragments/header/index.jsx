@@ -19,7 +19,9 @@ const Header = () => {
         </Icon>
         <h2 className='md:font-semibold text-white text-sm md:text-base lg:text-xl'>MOVOSTORE</h2>
       </div>
-      <SearchBar/>
+      <div className='relative hidden md:flex items-center'>
+        <SearchBar/>
+      </div>
       <Button fontsize="md:hidden text-lg">
         <IconSearch/>
       </Button>
