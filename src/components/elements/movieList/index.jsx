@@ -23,24 +23,24 @@ const MovieList = (props) => {
       <Swiper
         modules={[Navigation, Autoplay]}
         autoplay={{ delay: 5000 }}
-        spaceBetween={12}
         slidesPerView={2}
+        spaceBetween={12}
         breakpoints={{
           640: {
             slidesPerView: 2,
-            spaceBetween: 32,
+            spaceBetween: 12,
           },
           768: {
-            slidesPerView: 3,
-            spaceBetween: 32,
+            slidesPerView: 4,
+            spaceBetween: 12,
           },
           1024: {
-            slidesPerView: 4,
-            spaceBetween: 32,
+            slidesPerView: 5,
+            spaceBetween: 12,
           },
           1536: {
             slidesPerView: 6,
-            spaceBetween: 32
+            spaceBetween: 12
           }
         }}
       >
