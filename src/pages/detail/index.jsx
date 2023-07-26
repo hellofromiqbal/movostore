@@ -40,39 +40,39 @@ const DetailPage = () => {
           {movie.tagline && <cite className='text-sm md:text-base'>{`"${movie.tagline}"`}</cite>}
           <div className='flex gap-2 text-sm md:text-base'>
             <p className='font-semibold'>Genres:</p>
-            <p>{movie.genres?.map((genre, i) => wordFormatter(movie, "genres", genre, "name", i))}</p>
+            <p className='opacity-80'>{movie.genres?.map((genre, i) => wordFormatter(movie, "genres", genre, "name", i))}</p>
           </div>
           <div className='flex gap-2 text-sm md:text-base'>
             <p className='font-semibold'>Languages:</p>
-            <p>{movie["spoken_languages"]?.map((language, i) => wordFormatter(movie, "spoken_languages", language, "english_name", i))}</p>
+            <p className='opacity-80'>{movie["spoken_languages"]?.map((language, i) => wordFormatter(movie, "spoken_languages", language, "english_name", i))}</p>
           </div>
           <div className='flex gap-2 text-sm md:text-base'>
             <p className='font-semibold'>Release Date:</p>
-            <p>{movie["release_date"]}</p>
+            <p className='opacity-80'>{movie["release_date"]}</p>
           </div>
           <div className='flex gap-2 text-sm md:text-base'>
             <p className='font-semibold'>Rating:</p>
-            <p>{movie["vote_average"]}</p>
+            <p className='opacity-80'>{movie["vote_average"]}</p>
           </div>
           <div className='flex gap-2 text-sm md:text-base'>
             <p className='font-semibold'>Duration:</p>
-            <p>{movie.runtime} minutes</p>
+            <p className='opacity-80'>{movie.runtime} minutes</p>
           </div>
           <div className='flex flex-col gap-0 text-sm md:text-base'>
             <p className='font-semibold'>Overview:</p>
-            <p>{movie.overview}</p>
+            <p className='opacity-80'>{movie.overview}</p>
           </div>
           <div className='flex gap-2 text-sm md:text-base'>
             <p className='font-semibold'>Budget:</p>
-            <p>{currencyFormatter.format(movie.budget)}</p>
+            <p className='opacity-80'>{currencyFormatter.format(movie.budget)}</p>
           </div>
           <div className='flex gap-2 text-sm md:text-base'>
             <p className='font-semibold'>Revenue:</p>
-            <p>{currencyFormatter.format(movie.revenue)}</p>
+            <p className='opacity-80'>{currencyFormatter.format(movie.revenue)}</p>
           </div>
           <div className='flex flex-col gap-0 text-sm md:text-base'>
             <p className='font-semibold'>Production Companies:</p>
-            <p>{movie["production_companies"]?.map((company, i) => wordFormatter(movie, "production_companies", company, "name", i))}</p>
+            <p className='opacity-80'>{movie["production_companies"]?.map((company, i) => wordFormatter(movie, "production_companies", company, "name", i))}</p>
           </div>
 
         </div>
