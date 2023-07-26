@@ -32,10 +32,10 @@ const DetailPage = () => {
     >
       <SectionTitle section="movieDetails"/>
       <div className='flex flex-col md:flex-row gap-2 md:gap-6 w-full md:w-6/6 lg:w-5/6 xl:w-4/6 m-auto'>
-        <div className='basis-1/2 lg:basis-2/5 bg-black p-1 md:p-2 h-max'>
+        <div className='basis-1/2 lg:basis-3/8 bg-black p-1 md:p-2 h-max'>
           <img src={generatePoster(movie["poster_path"])} alt={movie.title} />
         </div>
-        <div className='basis-1/2 lg:basis-3/5 text-white flex flex-col lg:gap-2 gap-1'>
+        <div className='basis-1/2 lg:basis-5/8 text-white flex flex-col lg:gap-2 gap-1'>
           <h2 className='font-bold text-lg md:text-xl lg:text-2xl'>{movie.title}</h2>
           {movie.tagline && <cite className='text-sm md:text-base'>{`"${movie.tagline}"`}</cite>}
           <div className='flex gap-2 text-sm md:text-base'>
@@ -58,10 +58,6 @@ const DetailPage = () => {
             <p className='font-semibold'>Duration:</p>
             <p className='opacity-80'>{movie.runtime} minutes</p>
           </div>
-          <div className='flex flex-col gap-0 text-sm md:text-base'>
-            <p className='font-semibold'>Overview:</p>
-            <p className='opacity-80'>{movie.overview}</p>
-          </div>
           <div className='flex gap-2 text-sm md:text-base'>
             <p className='font-semibold'>Budget:</p>
             <p className='opacity-80'>{currencyFormatter.format(movie.budget)}</p>
@@ -74,7 +70,12 @@ const DetailPage = () => {
             <p className='font-semibold'>Production Companies:</p>
             <p className='opacity-80'>{movie["production_companies"]?.map((company, i) => wordFormatter(movie, "production_companies", company, "name", i))}</p>
           </div>
-
+          <div className='flex flex-col md:h-36 gap-0 text-sm md:text-base'>
+            <p className='font-semibold'>Overview:</p>
+            <div className='h-full overflow-auto'>
+              <p className='opacity-80'>{movie.overview}</p>
+            </div>
+          </div>
         </div>
       </div>
     </SectionLayout>
