@@ -55,10 +55,10 @@ const SectionTitle = (props) => {
         <h2 className='font-semibold text-white text-base md:text-lg lg:text-xl'>{content[section].title}</h2>
       </div>
       {displayShowAllLink &&
-        <Link to={content[section].link} className='md:font-semibold text-white text-sm'>Show All</Link>
+        <Link to={content[section].link} className='md:font-semibold text-white text-xs md:text-sm'>Show All</Link>
       }
       {displayGoBackLink &&
-        <a href="#" className='md:font-semibold text-white text-sm' onClick={(e) => onGoBack(e)}>Go Back</a>
+        <a href="#" className='md:font-semibold text-white text-xs md:text-sm' onClick={(e) => onGoBack(e)}>Go Back</a>
       }
     </div>
   )
