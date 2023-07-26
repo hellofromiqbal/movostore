@@ -39,7 +39,7 @@ const SearchBar = () => {
   return (
     <div className='relative hidden md:flex'>
       <input
-        className='md:w-72 lg:w-80 rounded-s-sm px-2 text-sm md:text-base'
+        className='md:w-72 lg:w-96 rounded-s-sm px-2 text-sm md:text-base lg:text-lg'
         type="text"
         placeholder='Harry Potter'
         onInput={(e) => onInput(e.target.value)}
