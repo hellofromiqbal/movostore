@@ -23,9 +23,9 @@ const MovieListsPage = () => {
   return (
     <SectionLayout
       sectionId="nowPlayingMovies"
-      gradFrom={"from-gray-950"}
+      gradFrom={"from-red-900"}
       gradTo={"to-black"}
-      gradVia={"via-red-800"}
+      gradVia={"via-red-950"}
       padding={"px-4 pt-16 pb-4 md:px-8 lg:px-16"}
     >
       <SectionTitle section="nowPlayingMovies" displayShowAllLink={false}/>
