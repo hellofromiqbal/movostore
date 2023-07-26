@@ -43,7 +43,6 @@ const MovieList = (props) => {
             spaceBetween: 32
           }
         }}
-        navigation
       >
         {movies?.map((movie) => (
           <SwiperSlide
