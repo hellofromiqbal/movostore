@@ -36,8 +36,8 @@ const SectionTitle = (props) => {
   };
 
   return (
-    <div className='flex items-center gap-2'>
-      <Icon fontsize={"text-3xl"}>
+    <div className='flex items-center gap-1 md:gap-2'>
+      <Icon fontsize={"text-lg md:text-xl lg:text-2xl"}>
         {content[section].icon}
       </Icon>
       <h2 className='font-semibold text-white text-base md:text-lg lg:text-xl'>{content[section].title}</h2>
