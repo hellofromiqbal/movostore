@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import {
   MdPlayCircleFilled as IconNowPlayingMovies,
@@ -12,6 +12,13 @@ import Icon from '../icon';
 
 const SectionTitle = (props) => {
   const { section, displayShowAllLink = true, displayGoBackLink = true } = props;
+
+  const navigate = useNavigate();
+
+  const onGoBack = (e) => {
+    e.preventDefault();
+    navigate(-1);
+  };
 
   const content = {
     "nowPlayingMovies": {
@@ -51,7 +58,7 @@ const SectionTitle = (props) => {
         <Link to={content[section].link} className='font-semibold text-white text-sm'>Show All</Link>
       }
       {displayGoBackLink &&
-        <Link to={"/"} className='font-semibold text-white text-sm'>Go Back</Link>
+        <a href="#" className='font-semibold text-white text-sm' onClick={(e) => onGoBack(e)}>Go Back</a>
       }
     </div>
   )
