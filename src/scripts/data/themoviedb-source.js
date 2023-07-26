@@ -13,6 +13,12 @@ const getUpcomingMovies = (callback) => {
     .catch(err => console.log(err));
 };
 
+const getTopRatedMovies = (callback) => {
+  axios.get(API_ENDPOINT.TOP_RATED)
+    .then(res => callback(res.data.results))
+    .catch(err => console.log(err));
+};
+
 const searchMovie = (query, callback) => {
   axios.get(API_ENDPOINT.SEARCH(query))
     .then(res => callback(res.data.results))
@@ -29,4 +35,4 @@ const getMovieDetails = (id, callback) => {
     .catch(err => console.log(err));
 };
 
-export { getNowPlayingMovies, getUpcomingMovies, searchMovie, generatePoster, getMovieDetails };
+export { getNowPlayingMovies, getUpcomingMovies, getTopRatedMovies, searchMovie, generatePoster, getMovieDetails };

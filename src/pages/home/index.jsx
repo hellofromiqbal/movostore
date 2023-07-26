@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { getNowPlayingMovies, getUpcomingMovies } from '../../scripts/data/themoviedb-source';
+import { getNowPlayingMovies, getUpcomingMovies, getTopRatedMovies } from '../../scripts/data/themoviedb-source';
 
 import { RiMovie2Line as IconMovie } from 'react-icons/ri';
 
@@ -11,12 +11,14 @@ import Icon from '../../components/elements/icon';
 
 
 const HomePage = () => {
-  const [nowPlaying, setNowPlaying] = useState([]);
-  const [upcoming, setUpcoming] = useState([]);
+  const [nowPlayingMovies, setNowPlayingMovies] = useState([]);
+  const [upcomingMovies, setUpcomingMovies] = useState([]);
+  const [topRatedMovies, setTopRatedMovies] = useState([]);
 
   useEffect(() => {
-    getNowPlayingMovies((data) => setNowPlaying(data));
-    getUpcomingMovies((data) => setUpcoming(data));
+    getNowPlayingMovies((data) => setNowPlayingMovies(data));
+    getUpcomingMovies((data) => setUpcomingMovies(data));
+    getTopRatedMovies((data) => setTopRatedMovies(data));
   }, []);
 
   return (
@@ -34,23 +36,33 @@ const HomePage = () => {
       </div>
       
       <SectionLayout
-        sectionId="now-playing"
+        sectionId="nowPlayingMovies"
         gradFrom={"from-black"}
         gradTo={"to-gray-950"}
         gradVia={"via-red-800"}
       >
-        <SectionTitle section="now-playing"/>
-        <MovieList movies={nowPlaying}/>
+        <SectionTitle section="nowPlayingMovies"/>
+        <MovieList movies={nowPlayingMovies}/>
       </SectionLayout>
 
       <SectionLayout
-        sectionId="upcoming"
+        sectionId="topRatedMovies"
+        gradFrom={"from-gray-950"}
+        gradTo={"to-gray-950"}
+        gradVia={"via-gray-950"}
+      >
+        <SectionTitle section="topRatedMovies"/>
+        <MovieList movies={topRatedMovies}/>
+      </SectionLayout>
+
+      <SectionLayout
+        sectionId="upcomingMovies"
         gradFrom={"from-gray-950"}
         gradTo={"to-black"}
         gradVia={"via-red-800"}
       >
-        <SectionTitle section="upcoming"/>
-        <MovieList movies={upcoming}/>
+        <SectionTitle section="upcomingMovies"/>
+        <MovieList movies={upcomingMovies}/>
       </SectionLayout>
     </>
   )

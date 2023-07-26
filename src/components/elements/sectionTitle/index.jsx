@@ -11,19 +11,23 @@ const SectionTitle = (props) => {
   const { section } = props;
 
   const content = {
-    "now-playing": {
+    "nowPlayingMovies": {
       title: "Now Playing Movies",
       icon: IconNowPlayingMovies()
     },
-    "upcoming": {
+    "upcomingMovies": {
       title: "Upcoming Movies",
       icon: IconUpcomingMovies()
     },
-    "search": {
+    "topRatedMovies": {
+      title: "Top Rated Movies",
+      icon: IconUpcomingMovies()
+    },
+    "searchResults": {
       title: "Search Result",
       icon: IconSearch()
     },
-    "detail": {
+    "movieDetails": {
       title: "Movie Details",
       icon: IconSearch()
     },
