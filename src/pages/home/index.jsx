@@ -27,7 +27,7 @@ const HomePage = () => {
       <div className='relative w-full h-screen md:h-[50vh] lg:h-screen'>
         <VideBackground/>
         <div className='absolute top-0 left-0  right-0 bottom-0 flex justify-center items-center gap-2'>
-          <Icon fontsize="text-5xl md:text-6xl lg:text-[5.5rem]">
+          <Icon fontsize="text-6xl md:text-7xl lg:text-[6.3rem]">
             <IconMovie/>
           </Icon>
           <div className='text-white'>
