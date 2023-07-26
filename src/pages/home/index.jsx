@@ -38,7 +38,7 @@ const HomePage = () => {
       <SectionLayout
         sectionId="nowPlayingMovies"
         gradFrom={"from-black"}
-        gradTo={"to-red-800"}
+        gradTo={"to-red-700"}
         gradVia={"via-gray-950"}
       >
         <SectionTitle section="nowPlayingMovies"/>
@@ -47,9 +47,9 @@ const HomePage = () => {
 
       <SectionLayout
         sectionId="topRatedMovies"
-        gradFrom={"from-red-800"}
-        gradTo={"to-red-800"}
-        gradVia={"via-red-800"}
+        gradFrom={"from-red-700"}
+        gradTo={"to-red-700"}
+        gradVia={"via-red-700"}
       >
         <SectionTitle section="topRatedMovies"/>
         <MovieList movies={topRatedMovies}/>
@@ -57,7 +57,7 @@ const HomePage = () => {
 
       <SectionLayout
         sectionId="upcomingMovies"
-        gradFrom={"from-red-800"}
+        gradFrom={"from-red-700"}
         gradTo={"to-black"}
         gradVia={"via-gray-950"}
       >
