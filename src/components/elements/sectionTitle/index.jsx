@@ -1,9 +1,9 @@
 import React from 'react';
 
 import {
-  MdPlayCircleOutline as IconNowPlayingMovies,
+  MdPlayCircleFilled as IconNowPlayingMovies,
   MdStars as IconTopRatedMovies,
-  MdOutlineUpdate as IconUpcomingMovies,
+  MdOutlineAccessTimeFilled as IconUpcomingMovies,
   MdSearch as IconSearch
 } from 'react-icons/md';
 import { HiOutlineInformationCircle as IconMovieDetails } from 'react-icons/hi';
