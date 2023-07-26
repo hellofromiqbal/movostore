@@ -27,12 +27,12 @@ const HomePage = () => {
       <div className='relative w-full h-screen md:h-[50vh] lg:h-screen'>
         <VideBackground/>
         <div className='absolute top-0 left-0  right-0 bottom-0 flex justify-center items-center gap-2'>
-          <Icon fontsize="text-6xl md:text-7xl lg:text-[6.3rem]">
+          <Icon fontsize="text-5xl md:text-6xl lg:text-[5.5rem]">
             <IconMovie/>
           </Icon>
           <div className='text-white'>
-            <h1 className='font-extrabold text-4xl md:text-5xl lg:text-7xl'>MOVOSTORE</h1>
-            <p className='text-base md:text-lg lg:text-xl'>Everyone's movie store!</p>
+            <h1 className='font-extrabold text-3xl md:text-4xl lg:text-6xl'>MOVOSTORE</h1>
+            <p className='text-sm md:text-base lg:text-lg'>Everyone's movie store!</p>
           </div>
         </div>
       </div>
