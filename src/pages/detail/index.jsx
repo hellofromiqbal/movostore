@@ -30,7 +30,7 @@ const DetailPage = () => {
       gradVia={"via-red-800"}
       padding={"px-4 pt-16 pb-4 md:px-8 lg:px-16"}
     >
-      <SectionTitle section="movieDetails"/>
+      <SectionTitle section="movieDetails" showAll={false}/>
       <div className='flex flex-col md:flex-row gap-2 md:gap-6 w-full md:w-6/6 lg:w-5/6 xl:w-4/6 m-auto'>
         <div className='basis-1/2 lg:basis-3/8 bg-black p-1 md:p-2 h-max'>
           <img src={generatePoster(movie["poster_path"])} alt={movie.title} />

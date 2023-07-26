@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import MainLayout from './components/layouts/MainLayout';
 import SearchPage from './pages/search';
 import DetailPage from './pages/detail';
+import MovieListsPage from './pages/movieLists';
 
 const routes = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ const routes = createBrowserRouter([
       {
         path: "/",
         element: <HomePage/>
+      },
+      {
+        path: "/:movieLists",
+        element: <MovieListsPage/>
       },
       {
         path: "/search/:query",

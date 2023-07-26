@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import {
   MdPlayCircleFilled as IconNowPlayingMovies,
@@ -10,20 +11,23 @@ import { HiOutlineInformationCircle as IconMovieDetails } from 'react-icons/hi';
 import Icon from '../icon';
 
 const SectionTitle = (props) => {
-  const { section } = props;
+  const { section, showAll = true } = props;
 
   const content = {
     "nowPlayingMovies": {
       title: "Now Playing Movies",
-      icon: IconNowPlayingMovies()
+      icon: IconNowPlayingMovies(),
+      link: "/now-playing"
     },
     "topRatedMovies": {
       title: "Top Rated Movies",
-      icon: IconTopRatedMovies()
+      icon: IconTopRatedMovies(),
+      link: "/top-rated"
     },
     "upcomingMovies": {
       title: "Upcoming Movies",
-      icon: IconUpcomingMovies()
+      icon: IconUpcomingMovies(),
+      link: "/upcoming"
     },
     "searchResults": {
       title: "Search Result",
@@ -36,11 +40,16 @@ const SectionTitle = (props) => {
   };
 
   return (
-    <div className='flex items-center gap-1 md:gap-2'>
-      <Icon fontsize={"text-lg md:text-xl lg:text-2xl"}>
-        {content[section].icon}
-      </Icon>
-      <h2 className='font-semibold text-white text-base md:text-lg lg:text-xl'>{content[section].title}</h2>
+    <div className='flex justify-between items-center'>
+      <div className='flex items-center gap-1 md:gap-2'>
+        <Icon fontsize={"text-lg md:text-xl lg:text-2xl"}>
+          {content[section].icon}
+        </Icon>
+        <h2 className='font-semibold text-white text-base md:text-lg lg:text-xl'>{content[section].title}</h2>
+      </div>
+      {showAll &&
+        <Link to={content[section].link} className='text-white text-sm'>Show All</Link>
+      }
     </div>
   )
 };
