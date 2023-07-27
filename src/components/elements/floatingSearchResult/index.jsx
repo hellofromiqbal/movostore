@@ -8,7 +8,7 @@ const FloatingSearchResult = (props) => {
     <div>
       <div className='h-96 overflow-auto'>
         {movies.splice(0, 5).map((movie) => (
-          <div key={movie.id} className='flex flex-row py-2 border-b-[1px] md:gap-2 cursor-pointer' onClick={() => handleClickSearchResult(movie.id)}>
+          <div key={movie.id} className='flex flex-row py-2 border-b-[1px] gap-2 md:gap-2 cursor-pointer' onClick={() => handleClickSearchResult(movie.id)}>
             <div className='basis-1/3 h-40 flex object-cover'>
               <img src={generatePoster(movie["poster_path"])} alt={movie.title}/>
             </div>
