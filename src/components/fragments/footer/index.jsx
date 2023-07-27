@@ -18,7 +18,7 @@ const Footer = () => {
   ];
 
   const footerLinks = [
-    { id: 1, text: "MovostoreApp", link: "#" },
+    { id: 1, text: "MovositeApp", link: "#" },
     { id: 2, text: "Help & FAQ", link: "#" },
     { id: 3, text: "Site Index", link: "#" },
     { id: 4, text: "Advertising", link: "#" },
@@ -40,7 +40,7 @@ const Footer = () => {
           <li key={footerLink.id} className='text-xs md:text-sm'><a href={footerLink.link}>{footerLink.text}</a></li>
         ))}
       </ul>
-      <small className='text-white place-self-center opacity-50'>&copy; 1990-2023 by Movostore.com, Inc.</small>
+      <small className='text-white place-self-center opacity-50'>&copy; 1990-2023 by Movosite.com, Inc.</small>
     </footer>
   )
 };

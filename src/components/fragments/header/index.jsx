@@ -28,7 +28,7 @@ const Header = () => {
             <Icon fontsize="text-2xl">
               <IconMovie/>
             </Icon>
-            <h2 className='font-semibold text-sm md:text-base'>MOVOSTORE</h2>
+            <h2 className='font-semibold text-sm md:text-base lg:text-lg'>Movosite</h2>
           </div>
         }
       </div>

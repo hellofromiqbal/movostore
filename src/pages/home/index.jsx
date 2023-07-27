@@ -31,8 +31,8 @@ const HomePage = () => {
             <IconMovie/>
           </Icon>
           <div className='text-white'>
-            <h1 className='font-extrabold text-3xl md:text-4xl lg:text-6xl'>MOVOSTORE</h1>
-            <p className='text-sm md:text-base lg:text-lg'>Everyone's movie store!</p>
+            <h1 className='font-extrabold text-3xl md:text-4xl lg:text-6xl'>Movosite</h1>
+            <p className='text-sm md:text-base lg:text-lg'>Everyone's movie online site!</p>
           </div>
         </div>
       </div>
