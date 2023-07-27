@@ -1,56 +1,58 @@
-import React, { useState } from 'react';
-import Button from '../../elements/button';
-import { FiSearch as IconSearch } from 'react-icons/fi';
+import React, { useEffect, useRef, useState } from 'react';
 import FloatingSearchResult from '../../elements/floatingSearchResult';
-import { searchMovie } from '../../../scripts/data/themoviedb-source';
 import { useNavigate } from 'react-router-dom';
+import { searchMovie } from '../../../scripts/data/themoviedb-source';
 
 const SearchBar = () => {
-  const [movies, setMovies] = useState([]);
+  const [query, setQuery] = useState('');
 
-  const [keyword, setKeyword] = useState('');
+  const [queryResult, setQueryResult] = useState([]);
 
   const navigate = useNavigate();
 
-  const onSearchMovies = (query) => {
+  useEffect(() => {
+    searchMovie(query, (data) => setQueryResult(data));
+  }, [query]);
+
+  const inputRef = useRef();
+
+  const handleInput = () => {
+    setQuery(inputRef.current.value);
+  };
+
+  const cleanSearch = () => {
+    inputRef.current.value = '';
+    setQuery('');
+  };
+
+  const handleClickEnter = (e, query) => {
+    if (e.keyCode !== 13) return;
+    if (query === '') return;
+    cleanSearch();
     navigate(`/search/${query}`);
-    setMovies([]);
   };
 
-  const onInput = (query) => {
-    setKeyword(query);
-    searchMovie(query, (data) => setMovies(data));
-  };
-
-  const onPressEnter = (e, callback) => {
-    if (e.code === 'Enter') {
-      callback(keyword);
-      setKeyword('');
-    };
-    return;
-  };
-
-  const onCardClick = (id) => {
+  const handleClickSearchResult = (id) => {
+    cleanSearch();
     navigate(`/detail/${id}`);
-    setKeyword('');
-    setMovies([]);
   }
 
+  const handleClickShowAllResult = () => {
+    cleanSearch();
+    navigate(`/search/${query}`);
+  };
+
   return (
-    <div className='flex'>
-      <input
-        className='md:w-72 lg:w-96 rounded-s-sm px-2 text-sm md:text-base lg:text-lg'
-        type="text"
-        placeholder='Harry Potter'
-        onInput={(e) => onInput(e.target.value)}
-        onKeyDown={(e) => onPressEnter(e, onSearchMovies)}
-        value={keyword}
-      />
-      <Button bgcolor="bg-white" textcolor="text-black" fontsize="text-sm md:text-base lg:text-xl" rounded="rounded-e-sm" onClick={() => onSearchMovies(keyword)}>
-        <IconSearch/>
-      </Button>
-      {movies.length > 0 && 
-        <FloatingSearchResult movies={movies} onCardClick={onCardClick} onSearchMovies={() => onSearchMovies(keyword)}/>
+    <div className='relative'>
+      <input ref={inputRef} type="search" id='search' className='w-full text-sm md:text-base rounded-sm px-2 py-1' onInput={(e) => handleInput(e)} onKeyUp={(e) => handleClickEnter(e, query)}/>
+      {queryResult.length > 0 &&
+        <div className='absolute w-full bg-black text-white top-[2.5rem] rounded-sm px-2 flex flex-col'>
+          <FloatingSearchResult
+            movies={queryResult}
+            handleClickSearchResult={handleClickSearchResult}
+            handleClickShowAllResult={handleClickShowAllResult}  
+          />
+        </div>
       }
     </div>
   )
