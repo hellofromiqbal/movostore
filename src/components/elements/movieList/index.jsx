@@ -19,7 +19,7 @@ const MovieList = (props) => {
   };
 
   return (
-    <div className=''>
+    <div>
       <Swiper
         modules={[Navigation, Autoplay]}
         autoplay={{ delay: 5000 }}
