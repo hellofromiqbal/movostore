@@ -19,7 +19,7 @@ const MovieList = (props) => {
   };
 
   return (
-    <div className='flex'>
+    <div className=''>
       <Swiper
         modules={[Navigation, Autoplay]}
         autoplay={{ delay: 5000 }}
@@ -60,7 +60,8 @@ const MovieList = (props) => {
                 </div>
                 <h4 className='text-white opacity-50 text-sm md:text-base'>{movie["vote_average"]}</h4>
               </div>
-              <h3 className='text-sm md:text-base'>{movie.title}</h3>
+              <h3 className='text-sm md:text-base whitespace-nowrap text-ellipsis overflow-hidden'>{movie.title}</h3>
+              <p className='text-xs md:text-sm opacity-50'>{movie["release_date"]}</p>
             </div>
           </SwiperSlide>
         ))}
