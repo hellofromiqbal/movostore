@@ -24,7 +24,7 @@ const Header = () => {
             <SearchBar/>
           </div>
           :
-          <div className='text-white flex items-center gap-1 md:gap-2' onClick={() => navigate("/")}>
+          <div className='text-white flex items-center gap-1 md:gap-2 cursor-pointer' onClick={() => navigate("/")}>
             <Icon fontsize="text-2xl">
               <IconMovie/>
             </Icon>
