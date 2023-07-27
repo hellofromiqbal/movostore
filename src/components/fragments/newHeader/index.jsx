@@ -49,7 +49,7 @@ const Header = () => {
       </div>
       <div className='basis-1/2 flex justify-end'>
         <div className='relative flex w-full md:w-96'>
-          <input ref={inputRef} type="search" id='search' className='w-full text-sm md:text-base rounded-sm px-2 py-1' onInput={(e) => handleInput(e)} onKeyUp={(e) => handleClickEnter(e, query)} autoFocus/>
+          <input ref={inputRef} type="search" id='search' className='w-full text-sm md:text-base rounded-sm px-2 py-1' onInput={(e) => handleInput(e)} onKeyUp={(e) => handleClickEnter(e, query)}/>
           {queryResult.length > 0 &&
             <div className='absolute w-full bg-black text-white top-[2.5rem] rounded-sm px-2 flex flex-col'>
               <FloatingSearchResult
