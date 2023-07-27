@@ -2,12 +2,12 @@ import React from 'react';
 import { generatePoster } from '../../../scripts/data/themoviedb-source';
 
 const FloatingSearchResult = (props) => {
-  const { movies, onCardClick, onSearchMovies } = props;
+  const { movies, handleClickSearchResult, handleClickShowAllResult } = props;
 
   return (
     <div>
       {movies.splice(0, 3).map((movie) => (
-        <div key={movie.id} className='flex flex-row py-2 border-b-[1px] md:gap-2 cursor-pointer' onClick={() => onCardClick(movie.id)}>
+        <div key={movie.id} className='flex flex-row py-2 border-b-[1px] md:gap-2 cursor-pointer' onClick={() => handleClickSearchResult(movie.id)}>
           <div className='basis-1/3 h-40 flex object-cover'>
             <img src={generatePoster(movie["poster_path"])} alt={movie.title}/>
           </div>
@@ -18,7 +18,7 @@ const FloatingSearchResult = (props) => {
           </div>
         </div>
       ))}
-      <a className="py-2 text-center cursor-pointer" onClick={() => onSearchMovies()}>Show all results</a>
+      <a className="py-2 text-center cursor-pointer" onClick={() => handleClickShowAllResult()}>Show all results</a>
     </div>
   )
 };
