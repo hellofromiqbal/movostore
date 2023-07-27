@@ -44,7 +44,6 @@ const Header = () => {
 
   return (
     <header className='bg-black h-14 fixed top-0 left-0 right-0 z-10 flex items-center px-4'>
-      {console.log(queryResult)}
       <div className='basis-1/2 text-white'>
         <h1>Movostore</h1>
       </div>
