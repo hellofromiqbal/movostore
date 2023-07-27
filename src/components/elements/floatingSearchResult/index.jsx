@@ -5,7 +5,7 @@ const FloatingSearchResult = (props) => {
   const { movies, onCardClick, onSearchMovies } = props;
 
   return (
-    <div className='absolute w-full bg-black text-white top-[2.3rem] rounded-sm px-2 flex flex-col'>
+    <div>
       {movies.splice(0, 3).map((movie) => (
         <div key={movie.id} className='flex flex-row py-2 border-b-[1px] md:gap-2 cursor-pointer' onClick={() => onCardClick(movie.id)}>
           <div className='basis-1/3 h-40 flex object-cover'>
