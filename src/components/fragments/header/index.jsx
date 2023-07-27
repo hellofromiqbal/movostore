@@ -1,30 +1,39 @@
 import React, { useState } from 'react';
-
-import Icon from '../../elements/icon';
 import SearchBar from '../searchBar';
 import Button from '../../elements/button';
-
-import { RiMovie2Line as IconMovie } from 'react-icons/ri';
 import { FiSearch as IconSearch } from 'react-icons/fi';
-import { useNavigate } from 'react-router-dom';
+import { AiOutlineClose as IconClose } from 'react-icons/ai';
 
 const Header = () => {
-  const navigate = useNavigate();
+  const [searchIconMobileClicked, setSearchIconMobileClicked] = useState(false);
+
+  const handleSearchIconMobileClicked = () => {
+    setSearchIconMobileClicked((prev) => !prev);
+  };
 
   return (
-    <header className='bg-black flex items-center justify-between fixed top-0 left-0 right-0 z-10 shadow-md px-4 py-3 md:px-8 lg:px-16'>
-      <div className='flex items-center gap-1 md:gap-2 cursor-pointer' onClick={() => navigate(`/`)}>
-        <Icon fontsize="text-lg lg:text-xl">
-          <IconMovie/>
-        </Icon>
-        <h2 className='md:font-semibold text-white text-sm md:text-base lg:text-xl'>MOVOSTORE</h2>
+    <header className='bg-black h-14 fixed top-0 left-0 right-0 z-10 flex items-center px-4'>
+      <div className='w-full md:basis-1/2'>
+        {searchIconMobileClicked ?
+          <div className='w-full md:w-96'>
+            <SearchBar/>
+          </div>
+          :
+          <div className='text-white'>
+            <h1>Movostore</h1>
+          </div>
+        }
       </div>
-      <div className='relative hidden md:flex items-center'>
-        <SearchBar/>
+      <div className='md:basis-1/2 flex justify-end'>
+        <div className='hidden md:block w-full md:w-96'>
+          <SearchBar/>
+        </div>
+        <div className='md:hidden'>
+          <Button fontsize="text-2xl" onClick={handleSearchIconMobileClicked}>
+            {searchIconMobileClicked ? <IconClose/> : <IconSearch/>}
+          </Button>
+        </div>
       </div>
-      <Button fontsize="md:hidden text-lg">
-        <IconSearch/>
-      </Button>
     </header>
   )
 };
