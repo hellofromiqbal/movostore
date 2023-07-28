@@ -50,7 +50,7 @@ const MovieList = (props) => {
             className='bg-black p-1 md:p-2 cursor-pointer'
             onClick={() => onCardClick(movie.id)}
           >
-            <div className='flex flex-col overflow-hidden'>
+            <div className='flex flex-col overflow-hidden hover:opacity-50 transition duration-500'>
               <img src={generatePoster(movie["poster_path"])} alt={movie.title} className='hover:scale-[1.1] transition duration-500'/>
             </div>
             <div className='md:hidden text-white p-1'>
