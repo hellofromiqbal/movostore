@@ -5,37 +5,37 @@ import { generatePoster, getMovieDetails } from '../../scripts/data/themoviedb-s
 import SectionTitle from '../../components/elements/sectionTitle';
 import MovieDetails from '../../components/fragments/movieDetails';
 import Button from '../../components/elements/button';
-import { IoCartOutline as IconCart, IoCartSharp as IconCartFill } from 'react-icons/io5';
+import { AiOutlineHeart as IconHeart, AiFillHeart as IconHeartFill } from 'react-icons/ai';
 
 const DetailPage = () => {
   const {id} = useParams();
 
-  const [movie, setMovie] = useState({});
+  const [movie, setMovie] = useState([]);
 
-  const [isAlreadyInCart, setIsAlreadyInCart] = useState();
+  const [isAlreadyLiked, setIsAlreadyLiked] = useState();
 
-  const handleAddToCart = (movieId) => {
-    let currMovieCart = JSON.parse(localStorage.getItem("movieCart"));
+  const handleLikeMovie = (movieId) => {
+    let currLikedMovies = JSON.parse(localStorage.getItem("likedMovies"));
 
-    localStorage.setItem("movieCart", JSON.stringify([...currMovieCart, movieId]));
+    localStorage.setItem("likedMovies", JSON.stringify([...currLikedMovies, movieId]));
 
-    setIsAlreadyInCart((prev) => !prev);
+    setIsAlreadyLiked((prev) => !prev);
   };
 
-  const handleRemoveFromCart = (movieId) => {
-    let currMovieCart = JSON.parse(localStorage.getItem("movieCart"));
+  const handleDislikeMovie = (movieId) => {
+    let currLikedMovies = JSON.parse(localStorage.getItem("likedMovies"));
 
-    localStorage.setItem("movieCart", JSON.stringify(currMovieCart.filter((item) => item !== movieId)));
+    localStorage.setItem("likedMovies", JSON.stringify(currLikedMovies.filter((item) => item !== movieId)));
 
-    setIsAlreadyInCart((prev) => !prev);
+    setIsAlreadyLiked((prev) => !prev);
   };
 
   useEffect(() => {
-    let currMovieCart = JSON.parse(localStorage.getItem("movieCart"));
+    let currLikedMovies = JSON.parse(localStorage.getItem("likedMovies"));
 
-    let alreadyInCart = currMovieCart.find((item) => item == id);
+    let alreadyLiked = currLikedMovies.find((item) => item == id);
 
-    alreadyInCart ? setIsAlreadyInCart(true) : setIsAlreadyInCart(false);
+    alreadyLiked ? setIsAlreadyLiked(true) : setIsAlreadyLiked(false);
 
     getMovieDetails(id, (data) => setMovie(data));
   }, [id]);
@@ -58,9 +58,9 @@ const DetailPage = () => {
       <div className='md:gap-6 w-full md:w-6/6 lg:w-5/6 xl:w-4/6 m-auto'>
         <Button
           fontsize="text-3xl md:text-4xl"
-          onClick={isAlreadyInCart ? () => handleRemoveFromCart(movie.id) : () => handleAddToCart(movie.id)}
+          onClick={isAlreadyLiked ? () => handleDislikeMovie(movie.id) : () => handleLikeMovie(movie.id)}
         >
-          {isAlreadyInCart ? <IconCartFill/> : <IconCart/>}
+          {isAlreadyLiked ? <IconHeartFill/> : <IconHeart/>}
         </Button>
       </div>
     </SectionLayout>

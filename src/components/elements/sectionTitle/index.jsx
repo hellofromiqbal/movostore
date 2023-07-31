@@ -8,6 +8,7 @@ import {
   MdSearch as IconSearch
 } from 'react-icons/md';
 import { HiOutlineInformationCircle as IconMovieDetails } from 'react-icons/hi';
+import { AiFillHeart as IconHeartFill } from 'react-icons/ai';
 import Icon from '../icon';
 
 const SectionTitle = (props) => {
@@ -43,6 +44,10 @@ const SectionTitle = (props) => {
     "movieDetails": {
       title: "Movie Details",
       icon: IconMovieDetails()
+    },
+    "likedMovies": {
+      title: "Liked Movies",
+      icon: IconHeartFill()
     },
   };
 

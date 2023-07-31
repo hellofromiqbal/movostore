@@ -21,8 +21,8 @@ const HomePage = () => {
     getUpcomingMovies((data) => setUpcomingMovies(data));
     getTopRatedMovies((data) => setTopRatedMovies(data));
 
-    if (!localStorage.getItem("movieCart")) {
-      localStorage.setItem("movieCart", JSON.stringify([]));
+    if (!localStorage.getItem("likedMovies")) {
+      localStorage.setItem("likedMovies", JSON.stringify([]));
     }
     
   }, []);

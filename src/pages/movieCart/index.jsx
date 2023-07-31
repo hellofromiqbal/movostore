@@ -5,13 +5,13 @@ import SectionTitle from '../../components/elements/sectionTitle';
 import MovieListNoSwipe from '../../components/elements/movieListNoSwipe';
 
 const MovieCart = () => {
-  const [cart, setCart] = useState([]);
+  const [likedMovies, setLikedMovies] = useState([]);
 
   useEffect(() => {
-    let movieIdsInCart = JSON.parse(localStorage.getItem("movieCart"));
+    let likedMovieIds = JSON.parse(localStorage.getItem("likedMovies"));
 
-    movieIdsInCart.map((movieId) => {
-      getMovieDetails(movieId, (data) => setCart((prev) => [...prev, data]));
+    likedMovieIds.map((movieId) => {
+      getMovieDetails(movieId, (data) => setLikedMovies((prev) => [...prev, data]));
     })
 
   }, []);
@@ -24,8 +24,8 @@ const MovieCart = () => {
       gradVia={"via-red-950"}
       padding={"px-4 pt-16 pb-4 md:px-8 lg:px-16"}
     >
-      <SectionTitle section="searchResults" displayShowAllLink={false}/>
-      <MovieListNoSwipe movies={cart}/>
+      <SectionTitle section="likedMovies" displayShowAllLink={false}/>
+      <MovieListNoSwipe movies={likedMovies}/>
     </SectionLayout>
   )
 };

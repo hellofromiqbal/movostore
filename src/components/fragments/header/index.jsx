@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import SearchBar from '../searchBar';
 import Button from '../../elements/button';
 import Icon from '../../elements/icon';
-import { IoCartSharp as IconCartFill } from 'react-icons/io5';
+import { AiFillHeart as IconHeartFill } from 'react-icons/ai';
 import { FiSearch as IconSearch } from 'react-icons/fi';
 import { AiOutlineClose as IconClose } from 'react-icons/ai';
 import { RiMovie2Line as IconMovie } from 'react-icons/ri';
@@ -42,7 +42,7 @@ const Header = () => {
             fontsize="text-2xl"
             onClick={() => navigate("/movie-cart")}
           >
-            <IconCartFill/>
+            <IconHeartFill/>
           </Button>
         }
         <div className='hidden lg:block w-full md:w-96'>
