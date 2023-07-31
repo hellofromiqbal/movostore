@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import SearchBar from '../searchBar';
 import Button from '../../elements/button';
 import Icon from '../../elements/icon';
+import { AiFillHeart as IconHeartFill } from 'react-icons/ai';
 import { FiSearch as IconSearch } from 'react-icons/fi';
 import { AiOutlineClose as IconClose } from 'react-icons/ai';
 import { RiMovie2Line as IconMovie } from 'react-icons/ri';
@@ -10,8 +11,11 @@ import { useNavigate } from 'react-router-dom';
 const Header = () => {
   const [searchIconMobileClicked, setSearchIconMobileClicked] = useState(false);
 
+  const [showCartIcon, setShowCartIcon] = useState(true);
+
   const handleSearchIconMobileClicked = () => {
     setSearchIconMobileClicked((prev) => !prev);
+    setShowCartIcon((prev => !prev));
   };
 
   const navigate = useNavigate();
@@ -32,11 +36,19 @@ const Header = () => {
           </div>
         }
       </div>
-      <div className='md:basis-1/2 flex justify-end'>
-        <div className='hidden md:block w-full md:w-96'>
+      <div className='md:basis-1/2 flex gap-2 md:gap-6 justify-end items-center'>
+        {showCartIcon &&
+          <Button
+            fontsize="text-2xl"
+            onClick={() => navigate("/liked-movies")}
+          >
+            <IconHeartFill/>
+          </Button>
+        }
+        <div className='hidden lg:block w-full md:w-96'>
           <SearchBar/>
         </div>
-        <div className='md:hidden'>
+        <div className='lg:hidden'>
           <Button fontsize="text-2xl" onClick={handleSearchIconMobileClicked}>
             {searchIconMobileClicked ? <IconClose/> : <IconSearch/>}
           </Button>

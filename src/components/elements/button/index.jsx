@@ -7,13 +7,14 @@ const Button = (props) => {
     fontsize,
     border,
     rounded,
+    padding = "p-1",
     onClick = () => {},
     children
   } = props;
 
   return (
     <button
-      className={`${bgcolor} ${textcolor} ${fontsize} ${border} ${rounded} p-1`}
+      className={`${bgcolor} ${textcolor} ${fontsize} ${border} ${rounded} ${padding}`}
       onClick={onClick}
     >
       {children}

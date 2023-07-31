@@ -3,22 +3,40 @@ import SectionLayout from '../../components/layouts/SectionLayout';
 import { useParams } from 'react-router-dom';
 import { generatePoster, getMovieDetails } from '../../scripts/data/themoviedb-source';
 import SectionTitle from '../../components/elements/sectionTitle';
+import MovieDetails from '../../components/fragments/movieDetails';
+import Button from '../../components/elements/button';
+import { AiOutlineHeart as IconHeart, AiFillHeart as IconHeartFill } from 'react-icons/ai';
 
 const DetailPage = () => {
   const {id} = useParams();
 
-  const [movie, setMovie] = useState({});
+  const [movie, setMovie] = useState([]);
 
-  const currencyFormatter = new Intl.NumberFormat("en-US", {style: "currency", currency: "USD"});
+  const [isAlreadyLiked, setIsAlreadyLiked] = useState();
 
-  const wordFormatter = (obj, objProp, arrData, objInArrProp, i) => {
-    if (i === obj[objProp].length-1) {
-      return `${arrData[objInArrProp]}.`;
-    }
-    return `${arrData[objInArrProp]}, `;
+  const handleLikeMovie = (movieId) => {
+    let currLikedMovies = JSON.parse(localStorage.getItem("likedMovies"));
+
+    localStorage.setItem("likedMovies", JSON.stringify([...currLikedMovies, movieId]));
+
+    setIsAlreadyLiked((prev) => !prev);
+  };
+
+  const handleDislikeMovie = (movieId) => {
+    let currLikedMovies = JSON.parse(localStorage.getItem("likedMovies"));
+
+    localStorage.setItem("likedMovies", JSON.stringify(currLikedMovies.filter((item) => item !== movieId)));
+
+    setIsAlreadyLiked((prev) => !prev);
   };
 
   useEffect(() => {
+    let currLikedMovies = JSON.parse(localStorage.getItem("likedMovies"));
+
+    let alreadyLiked = currLikedMovies.find((item) => item == id);
+
+    alreadyLiked ? setIsAlreadyLiked(true) : setIsAlreadyLiked(false);
+
     getMovieDetails(id, (data) => setMovie(data));
   }, [id]);
 
@@ -35,48 +53,21 @@ const DetailPage = () => {
         <div className='basis-1/2 lg:basis-3/8 bg-black p-1 md:p-2 h-max'>
           <img src={generatePoster(movie["poster_path"])} alt={movie.title} />
         </div>
-        <div className='basis-1/2 lg:basis-5/8 text-white flex flex-col lg:gap-2 gap-1'>
-          <h2 className='font-bold text-lg md:text-xl lg:text-2xl'>{movie.title}</h2>
-          {movie.tagline && <cite className='text-sm md:text-base'>{`"${movie.tagline}"`}</cite>}
-          <div className='flex gap-2 text-sm md:text-base'>
-            <p className='font-semibold'>Genres:</p>
-            <p className='opacity-80'>{movie.genres?.map((genre, i) => wordFormatter(movie, "genres", genre, "name", i))}</p>
+        <MovieDetails movie={movie}/>
+      </div>
+      <div className='md:gap-6 w-full md:w-6/6 lg:w-5/6 xl:w-4/6 m-auto text-center'>
+        <Button
+          fontsize="text-xl md:text-2xl"
+          bgcolor="bg-red-900"
+          rounded="rounded-md"
+          padding="py-2 ps-2 pe-3"
+          onClick={isAlreadyLiked ? () => handleDislikeMovie(movie.id) : () => handleLikeMovie(movie.id)}
+        >
+          <div className='flex items-center gap-1'>
+            {isAlreadyLiked ? <IconHeartFill/> : <IconHeart/>}
+            {isAlreadyLiked ? <p className='text-lg md:text-xl'>{"Unlike Movie"}</p> : <p className='text-lg md:text-xl'>{"Like Movie"}</p>}
           </div>
-          <div className='flex gap-2 text-sm md:text-base'>
-            <p className='font-semibold'>Languages:</p>
-            <p className='opacity-80'>{movie["spoken_languages"]?.map((language, i) => wordFormatter(movie, "spoken_languages", language, "english_name", i))}</p>
-          </div>
-          <div className='flex gap-2 text-sm md:text-base'>
-            <p className='font-semibold'>Release Date:</p>
-            <p className='opacity-80'>{movie["release_date"]}</p>
-          </div>
-          <div className='flex gap-2 text-sm md:text-base'>
-            <p className='font-semibold'>Rating:</p>
-            <p className='opacity-80'>{movie["vote_average"]}</p>
-          </div>
-          <div className='flex gap-2 text-sm md:text-base'>
-            <p className='font-semibold'>Duration:</p>
-            <p className='opacity-80'>{movie.runtime} minutes</p>
-          </div>
-          <div className='flex gap-2 text-sm md:text-base'>
-            <p className='font-semibold'>Budget:</p>
-            <p className='opacity-80'>{currencyFormatter.format(movie.budget)}</p>
-          </div>
-          <div className='flex gap-2 text-sm md:text-base'>
-            <p className='font-semibold'>Revenue:</p>
-            <p className='opacity-80'>{currencyFormatter.format(movie.revenue)}</p>
-          </div>
-          <div className='flex flex-col gap-0 text-sm md:text-base'>
-            <p className='font-semibold'>Production Companies:</p>
-            <p className='opacity-80'>{movie["production_companies"]?.map((company, i) => wordFormatter(movie, "production_companies", company, "name", i))}</p>
-          </div>
-          <div className='flex flex-col md:h-36 gap-0 text-sm md:text-base'>
-            <p className='font-semibold'>Overview:</p>
-            <div className='h-full overflow-auto'>
-              <p className='opacity-80'>{movie.overview}</p>
-            </div>
-          </div>
-        </div>
+        </Button>
       </div>
     </SectionLayout>
   )

@@ -44,7 +44,7 @@ const SearchBar = () => {
 
   return (
     <div className='relative'>
-      <input ref={inputRef} type="search" id='search' className='w-full text-sm md:text-base rounded-sm px-2 py-1' onInput={(e) => handleInput(e)} onKeyUp={(e) => handleClickEnter(e, query)} autoFocus/>
+      <input ref={inputRef} type="search" id='search' className='w-full text-sm md:text-base rounded-sm px-2 py-1' onInput={(e) => handleInput(e)} onKeyUp={(e) => handleClickEnter(e, query)} placeholder='Type keyword and hit "Enter" to search' autoFocus/>
       {queryResult.length > 0 &&
         <div className='absolute w-full bg-black text-white top-[2.5rem] rounded-sm px-2 flex flex-col'>
           <FloatingSearchResult
