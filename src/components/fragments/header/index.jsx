@@ -40,7 +40,7 @@ const Header = () => {
         {showCartIcon &&
           <Button
             fontsize="text-2xl"
-            onClick={() => navigate("/movie-cart")}
+            onClick={() => navigate("/liked-movies")}
           >
             <IconHeartFill/>
           </Button>

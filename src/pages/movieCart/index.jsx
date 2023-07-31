@@ -4,7 +4,7 @@ import SectionLayout from '../../components/layouts/SectionLayout';
 import SectionTitle from '../../components/elements/sectionTitle';
 import MovieListNoSwipe from '../../components/elements/movieListNoSwipe';
 
-const MovieCart = () => {
+const LikedMovies = () => {
   const [likedMovies, setLikedMovies] = useState([]);
 
   useEffect(() => {
@@ -30,4 +30,4 @@ const MovieCart = () => {
   )
 };
 
-export default MovieCart;
+export default LikedMovies;
