@@ -57,7 +57,7 @@ const DetailPage = () => {
       </div>
       <div className='md:gap-6 w-full md:w-6/6 lg:w-5/6 xl:w-4/6 m-auto'>
         <Button
-          fontsize="text-2xl md:text-3xl lg:text-4xl"
+          fontsize="text-3xl md:text-4xl"
           onClick={isAlreadyInCart ? () => handleRemoveFromCart(movie.id) : () => handleAddToCart(movie.id)}
         >
           {isAlreadyInCart ? <IconCartFill/> : <IconCart/>}
