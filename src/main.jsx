@@ -7,6 +7,7 @@ import MainLayout from './components/layouts/MainLayout';
 import SearchPage from './pages/search';
 import DetailPage from './pages/detail';
 import MovieListsPage from './pages/movieLists';
+import MovieCart from './pages/movieCart';
 
 const routes = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ const routes = createBrowserRouter([
       {
         path: "/",
         element: <HomePage/>
+      },
+      {
+        path: "/movie-cart",
+        element: <MovieCart/>
       },
       {
         path: "/:movieLists",
