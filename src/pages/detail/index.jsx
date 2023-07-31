@@ -12,17 +12,31 @@ const DetailPage = () => {
 
   const [movie, setMovie] = useState({});
 
-  const [addToCart, setAddToCart] = useState(false);
+  const [isAlreadyInCart, setIsAlreadyInCart] = useState();
 
   const handleAddToCart = (movieId) => {
     let currMovieCart = JSON.parse(localStorage.getItem("movieCart"));
 
     localStorage.setItem("movieCart", JSON.stringify([...currMovieCart, movieId]));
 
-    setAddToCart((prev) => !prev);
+    setIsAlreadyInCart((prev) => !prev);
+  };
+
+  const handleRemoveFromCart = (movieId) => {
+    let currMovieCart = JSON.parse(localStorage.getItem("movieCart"));
+
+    localStorage.setItem("movieCart", JSON.stringify(currMovieCart.filter((item) => item !== movieId)));
+
+    setIsAlreadyInCart((prev) => !prev);
   };
 
   useEffect(() => {
+    let currMovieCart = JSON.parse(localStorage.getItem("movieCart"));
+
+    let alreadyInCart = currMovieCart.find((item) => item == id);
+
+    alreadyInCart ? setIsAlreadyInCart(true) : setIsAlreadyInCart(false);
+
     getMovieDetails(id, (data) => setMovie(data));
   }, [id]);
 
@@ -42,8 +56,11 @@ const DetailPage = () => {
         <MovieDetails movie={movie}/>
       </div>
       <div className='md:gap-6 w-full md:w-6/6 lg:w-5/6 xl:w-4/6 m-auto'>
-        <Button fontsize="text-2xl md:text-3xl lg:text-4xl" onClick={() => handleAddToCart(movie.id)}>
-          {addToCart ? <IconCartFill/> : <IconCart/>}
+        <Button
+          fontsize="text-2xl md:text-3xl lg:text-4xl"
+          onClick={isAlreadyInCart ? () => handleRemoveFromCart(movie.id) : () => handleAddToCart(movie.id)}
+        >
+          {isAlreadyInCart ? <IconCartFill/> : <IconCart/>}
         </Button>
       </div>
     </SectionLayout>
