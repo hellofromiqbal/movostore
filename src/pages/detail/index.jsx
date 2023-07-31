@@ -55,12 +55,18 @@ const DetailPage = () => {
         </div>
         <MovieDetails movie={movie}/>
       </div>
-      <div className='md:gap-6 w-full md:w-6/6 lg:w-5/6 xl:w-4/6 m-auto'>
+      <div className='md:gap-6 w-full md:w-6/6 lg:w-5/6 xl:w-4/6 m-auto text-center'>
         <Button
-          fontsize="text-3xl md:text-4xl"
+          fontsize="text-xl md:text-2xl"
+          bgcolor="bg-red-900"
+          rounded="rounded-md"
+          padding="py-2 ps-2 pe-3"
           onClick={isAlreadyLiked ? () => handleDislikeMovie(movie.id) : () => handleLikeMovie(movie.id)}
         >
-          {isAlreadyLiked ? <IconHeartFill/> : <IconHeart/>}
+          <div className='flex items-center gap-1'>
+            {isAlreadyLiked ? <IconHeartFill/> : <IconHeart/>}
+            {isAlreadyLiked ? <p className='text-lg md:text-xl'>{"Unlike Movie"}</p> : <p className='text-lg md:text-xl'>{"Like Movie"}</p>}
+          </div>
         </Button>
       </div>
     </SectionLayout>
