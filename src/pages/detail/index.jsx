@@ -15,6 +15,10 @@ const DetailPage = () => {
   const [addToCart, setAddToCart] = useState(false);
 
   const handleAddToCart = (movieId) => {
+    let currMovieCart = JSON.parse(localStorage.getItem("movieCart"));
+
+    localStorage.setItem("movieCart", JSON.stringify([...currMovieCart, movieId]));
+
     setAddToCart((prev) => !prev);
   };
 

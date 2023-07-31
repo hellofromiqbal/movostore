@@ -20,6 +20,11 @@ const HomePage = () => {
     getNowPlayingMovies((data) => setNowPlayingMovies(data));
     getUpcomingMovies((data) => setUpcomingMovies(data));
     getTopRatedMovies((data) => setTopRatedMovies(data));
+
+    if (!localStorage.getItem("movieCart")) {
+      localStorage.setItem("movieCart", JSON.stringify([]));
+    }
+    
   }, []);
 
   return (
