@@ -40,7 +40,7 @@ const Footer = () => {
           <li key={footerLink.id} className='text-xs md:text-sm'><a href={footerLink.link}>{footerLink.text}</a></li>
         ))}
       </ul>
-      <small className='text-white place-self-center opacity-50'>&copy; 1990-2023 by Movosite.com, Inc.</small>
+      <small className='text-white place-self-center opacity-50'>Created with ♥ by Muhammad Iqbal</small>
     </footer>
   )
 };
