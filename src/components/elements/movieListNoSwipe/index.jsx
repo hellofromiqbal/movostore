@@ -17,7 +17,7 @@ const MovieListNoSwipe = (props) => {
     <div className='flex'>
       {movies.length === 0 ?
         <div className='text-white h-96 md:h-screen w-full flex justify-center items-center'>
-          <h1 className='text-base md:text-lg'>You don't have any liked movies yet!</h1>
+          <h1 className='text-base md:text-lg'>No results!</h1>
         </div>
         :
         <div className='grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 2xl:grid-cols-6 gap-2 md:gap-3 lg:gap-4 xl:gap-6'>
