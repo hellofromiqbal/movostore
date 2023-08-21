@@ -12,8 +12,7 @@ const LikedMovies = () => {
 
     likedMovieIds.map((movieId) => {
       getMovieDetails(movieId, (data) => setLikedMovies((prev) => [...prev, data]));
-    })
-
+    });
   }, []);
 
   return (
